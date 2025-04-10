@@ -1,11 +1,12 @@
 import sys 
-import logging
+import logging , logger
 
 
 def error_message_detail(error, error_detail: sys):
   _,_,exe_tb=error_detail.exc_info()
   file_name=exe_tb.tb_frame.f_code.co_filename
   error_message="Error occured in python script name [{0}] line number [{1}] error message [{2}]".format(file_name,exe_tb.tb_lineno,str(error))
+  logger.logging.exception(error_message)
   return error_message
 
 
@@ -22,6 +23,5 @@ if __name__=="__main__":
     a=1/0
   except Exception as e:
     logging.info('divide by zero')
-    
     raise CustomException(e,sys)
   
