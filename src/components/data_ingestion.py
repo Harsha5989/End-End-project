@@ -1,5 +1,6 @@
 import os
 import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)).rsplit('src', 1)[0])
 from src.exception import CustomException
 from src.logger import logging
 import pandas as pd
